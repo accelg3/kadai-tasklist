@@ -1,9 +1,4 @@
 class UsersController < ApplicationController
-  
-
-  
-
-
 
   def new
     @user=User.new
@@ -23,15 +18,6 @@ class UsersController < ApplicationController
   end
   
   private
-  def require_user_logged_in
-    unless logged_in?
-      redirect_to login_url
-    end
-  end
-
-  def counts(user)
-    @count_tasks = user.tasks.count
-  end
   
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
